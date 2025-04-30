@@ -36,7 +36,7 @@ def get_metadata():
         return {
             "artista": artista,
             "titulo": titulo,
-            "caratula": f"{artwork_url}&random={int(__import__('time').time())}",
+            "caratula": artwork_url,
             "streaming": streaming_url
         }
 
