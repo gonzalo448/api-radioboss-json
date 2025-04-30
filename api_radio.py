@@ -38,7 +38,7 @@ def get_metadata():
     return {
         "artista": artista,
         "titulo": titulo,
-        "caratula": artwork_url,
+        "caratula": f"{artwork_url}&cache_bust={titulo}-{artista}",
         "streaming": streaming_url
     }
 
