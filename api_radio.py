@@ -21,10 +21,10 @@ def get_metadata():
     streaming_url = "https://ritmo.moxapps.shop/stream"
 
     try:
-        # Forzar decodificación como UTF-8 para tildes y ñ
+        # Solicitar la información y forzar que se interprete como UTF-8
         response = requests.get(playback_info_url, timeout=5)
-        response.raise_for_status()
-        xml_data = ET.fromstring(response.content.decode('utf-8', errors='ignore'))
+        response.encoding = 'utf-8'  # Clave para mostrar tildes y ñ correctamente
+        xml_data = ET.fromstring(response.text)
 
         # Extraer metadatos del XML
         track = xml_data.find(".//CurrentTrack/TRACK")
